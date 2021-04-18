@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: lightblue;
+            margin: 50px 20px;
+            padding: 20px 20px 20px 20px;
+            border-radius: 40px;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        hr{background-color:dodgerblue;       
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="container">
+            <h1>Form</h1><hr><br>
+            <form action="#">
+                <label for="name">Name :</label>
+                <input type="text" name="name" id="name" required>
+                <br><br>
+    
+                <label for="Mobile">Mobile No. :</label>
+                <input type="phone" name="mobile" id="mobile" placeholder="ex:7984891023" required>
+                <br><br>
+    
+                <label for="email">E-mail :</label>
+                <input type="email" name="email" id="email" placeholder="abc@gmail.com" required>
+                <br><br>
+    
+                <label for="gender">Gender: </label>
+                <input type="radio" name="gender" value="Male">Male
+                <input type="radio" name="gender" value="Female">Female
+                <input type="radio" name="gender" value="Others">Other
+                <br><br>
+    
+                <label for="favcolor">Favorite Color :</label>
+                <input type="text" name="favcolor" id="favcolor" required>
+                <br><br>
+    
+                <input type="submit" class="submit" onclick="showInput(),radiovalue();"><br><br>
+            </div>
+            <div class="container">
+                <h3>You entered the following values :</h3><br><hr><br>
+                <span id="displayname"></span><br><br>
+                <span id="displaymobile"></span><br><br>
+                <span id="displayemail"></span><br><br>
+                <span id="displayfavcolor"></span><br><br>
+                <span id="displaygender"></span>
+            </div>
+    </div>
+</body>
+<script>
+    function showInput() {
+        document.getElementById('displayname').innerHTML = "Name: "+document.getElementById("name").value;
+        document.getElementById('displaymobile').innerHTML = "Mobile: "+document.getElementById("mobile").value;
+        document.getElementById('displayemail').innerHTML = "E-mail: "+document.getElementById("email").value;
+        document.getElementById('displayfavcolor').innerHTML = "Favorite Color: "+document.getElementById("favcolor").value;
+    }
+    function radiovalue() {
+    var ele = document.getElementsByName('gender');
+    for(i = 0; i < ele.length; i++) {
+        if(ele[i].checked)
+        document.getElementById("displaygender").innerHTML = "Gender: "+ele[i].value;
+    }
+    }
+</script>
+</html>
